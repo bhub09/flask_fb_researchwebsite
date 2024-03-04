@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Procedure</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" 
+          integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename='stylesSE.css')}}">
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
+        crossorigin="anonymous"> defer</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js" 
+        integrity="sha512-a+SUDuwNzXDvz4XrIcXHuCf089/iJAoN4lmrXJg18XnduKK6YlDHNRalv4yd1N40OKI80tFidF+rqTFKGPoWFQ==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+</head>
+<body>
+    <!-- lg = large breakpoint, navbar-light = make text dark, headerBG = custom css BG color-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a href="{{url_for('index')}}" class="navbar-brand">
+                <img src="{{url_for('static', filename='img/battery.png')}}" alt="Battery Icon" class="d-inline-block align-text-top w-25">
+            </a>
+
+            <!-- Hamburger Menu Button-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Collapsible navbar menu with custom hover underline CSS animation -->
+            <div class="collapse navbar-collapse" id="navmenu">
+                <!-- Links to hamburger menu button -->
+                <ul class="navbar-nav ms-auto"> <!-- ms auto provides auto margin spacing -->
+                    <li class="nav-item">
+                        <a href="{{url_for('authors')}}" class="nav-link hover-underline-animation" id="nbMenuItem">Authors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{url_for('procedure')}}" class="nav-link hover-underline-animation" id="nbMenuItem">Procedure</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{url_for('results')}}" class="nav-link hover-underline-animation" id="nbMenuItem">Results</a>
+                    </li>
+                </ul>
+            </div>
+        </div> 
+    </nav>
+
+    <!-- How to use the sensor -->
+    <section class="procedure">
+        <div class="container">
+            <br>
+            <div class="text-center">
+                <h1>Procedure</h1>
+                <h2>Using a numbered list, describe your procedure w/ pictures</h2>
+            </div>
+            <hr><br>
+
+            <table class="table table-hover text-center table-light table-bordered border-dark-subtle">
+                <thead>
+                    <tr class="primary">
+                        <th><h3>Step</h3></th>
+                        <th><h3>Procedure</h3></th>
+                        <th><h3>Image</h3></th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    <tr class="align-middle">
+                        <th scope="row" class="table-secondary"><h2>1</h2></th>
+                        <td><h2 class="howTo"><strong>Assemble Battery Management System (BMS)</strong></h2>
+                            <li>
+                                Three components of BMS: Sunfounder LCD, Arduino UNO, and INA219 sensor   
+                            </li>
+                            <li>
+                                Components were placed in a clear plastic box 
+                            </li>
+                            <li>
+                                Components' mounting points and openings for connections 
+                                    to  experimental circuits were marked with sharpie   
+                            </li>
+                            <li>
+                                Drill was used to make holes at marked locations 
+                            </li>
+                            <li>
+                                Standoffs and nylon screws used to secure components in place   
+                            </li>
+                        </td>
+                        <td><p class="text-center"><img src="{{url_for('static', filename='/img/bms.jpg')}}" style="max-height:70%; max-width:70%" alt="Battery Management System"></p></td>
+
+                    </tr>
+                    <tr class="align-middle">
+                        <th scope="row" class="table-secondary"><h2>2</h2></th>
+                        <td><h2 class="howTo"><strong>Construct Batteries</strong></h2>
+                            <li>
+                                Copper current collector sheet placed inside of a 3D-printed box, with soldered tin wire protruding from drilled
+                                    holes in box
+                            </li>
+                            <li>
+                                A graphite cathode sheet is placed on top of the copper current collector sheet
+                            </li>
+                            <li>
+                                An electrode separator is placed on top of graphite cathode
+                            </li>
+                            <li>
+                                Hydrogel electrolyte (Saltwater, acidic, deep-eutectic-solvent, or Fucoidan) is spread evenly across graphite cathode
+                            </li>
+                            <li>
+                                Aluminum sheet is placed on the hydrogel
+                            </li>
+                            <li>
+                                3D-printed lid is slotted into place, closing the battery
+                            </li>
+                        </td>
+                        <td><p class="text-center"><img src="{{url_for('static', filename='/img/batterymakingprocess.png')}}" style="max-height:70%; max-width:70%" alt="Battery Making Process"></p></td>
+                    </tr>
+                    <tr class="align-middle">
+                        <th class="table-secondary" scope="row"><h2>3</h2></th>
+                        <td><h2 class="howTo"><strong>Construct and Test w/ Experimental Circuits (Recharge and Discharge)</strong></h2>
+                            <li>
+                                Two types of circuits were used for testing: Recharge and Discharge
+                            </li>
+                            <li>
+                                Recharge circuit uses a pair of AA batteries to charge the experimental battery
+                            </li>
+                            <li>
+                                Source side of recharge circuit is two AA alkaline batteries
+                            </li>
+                            <li>
+                                Load side of the recharge circuit: Aluminum battery cell
+                            </li>
+                            <li>
+                                Discharge circuit uses experimental battery to power an LED
+                            </li>
+                            <li>
+                                Source side of the discharge circuit: Aluminum battery cell 
+                            </li>
+                            <li>
+                                Load side of the discharge circuit: Voltage Booster, Resistor, LED, and Multimeter 
+                            </li>
+                        </td>
+                        <td><p class="text-center"><img src="{{url_for('static', filename='/img/experimentalcircuits.png')}}" style="max-height:70%; max-width:70%" alt="Recharge & Discharge Circuits"></p></td>
+                    </tr>
+                    <tr class="align-middle">
+                        <th scope="row" class="table-secondary"><h2>4</h2></th>
+                        <td><h2 class="howTo"><strong>Data Collection Using CoolTerm Software</strong></h2>
+                            <li>
+                                The software CoolTerm was used to save the data from Arduino port into a text file.
+                            </li>
+                            <li>
+                                The battery was reconfigured to the discharge circuit
+                            </li>
+                            <li>
+                                Serial data from the BMS was collected for 5 minutes during discharge, and saved into the text file
+                            </li>
+                            <li>
+                                Previous steps were repeated 2 more times for data collection
+                            </li>
+                        </td>
+                        <td><p class="text-center"><img src="{{url_for('static', filename='/img/coolterm-logo.png')}}" style="max-height:40%; max-width:40%" alt="CoolTerm Logo"></p></td>
+                    </tr>
+                    <tr class="align-middle">
+                        <th scope="row" class="table-secondary"><h2>5</h2></th>
+                        <td><h2 class="howTo"><strong>Statistical Analysis</strong></h2>
+                            <li>
+                                Independent variable is electrolyte type; Dependent variables are voltage, current, and power readings
+                            </li>
+                            <li>
+                                Three trials conducted for each electrolyte to gather  raw data
+                            </li>
+                            <li>
+                                Average power and current values used for the summative and statistical analysis. 
+                            </li>
+                            <li>
+                                Summative analysis involved calculation of measures of central tendency (mean, variance, and standard deviation)
+                            </li>
+                            <li>
+                                Statistical analysis first involved a single-factor/one-way ANOVA test on power readings of all electrolytes
+                            </li>
+                            <li>
+                                Two-tailed paired t-tests performed between experimental and each control electrolyte
+                            </li>
+                        </td>
+                        <td><p class="text-center"><img src="{{url_for('static', filename='/img/statisticalanalysis.png')}}" style="max-height:70%; max-width:70%" alt="Graphs of Data"></p></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+    
+
+    <!-- Footer (requires Bootstrap icons CSS)-->
+    <footer class="p-5 footer text-light text-center position-relative">
+        <div class="container">
+            <p class="lead">Copyright &copy; SE 2023 Bootstrap Demo</p>
+            <a href="#" class="position-absolute bottom-0 end-0 p-5">
+                <i class="bi bi-arrow-up-circle h2 icon-white"></i>
+            </a>
+        </div>
+
+    </footer>
+</body>
+</html>

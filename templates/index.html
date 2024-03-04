@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Home Page</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" 
+          integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename='stylesSE.css')}}">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
+        crossorigin="anonymous"> defer</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js" 
+        integrity="sha512-a+SUDuwNzXDvz4XrIcXHuCf089/iJAoN4lmrXJg18XnduKK6YlDHNRalv4yd1N40OKI80tFidF+rqTFKGPoWFQ==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+</head>
+<body>
+    <!-- lg = large breakpoint, navbar-light = make text dark, headerBG = custom css BG color-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a href="{{url_for('index')}}" class="navbar-brand">
+                <img src="{{url_for('static', filename='img/battery.png')}}" alt="Battery Icon" class="d-inline-block align-text-top w-25">
+            </a>
+
+            <!-- Hamburger Menu Button-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Collapsible navbar menu with custom hover underline CSS animation -->
+            <div class="collapse navbar-collapse" id="navmenu">
+                <!-- Links to hamburger menu button -->
+                <ul class="navbar-nav ms-auto"> <!-- ms auto provides auto margin spacing -->
+                    <li class="nav-item">
+                        <a href="{{url_for('authors')}}" class="nav-link hover-underline-animation" id="nbMenuItem">Authors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{url_for('procedure')}}" class="nav-link hover-underline-animation" id="nbMenuItem">Procedure</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{url_for('results')}}" class="nav-link hover-underline-animation" id="nbMenuItem">Results</a>
+                    </li>
+                </ul>
+            </div>
+        </div> 
+    </nav>
+
+    <!-- Showcase -->
+    <section class="showcase text-light p-2 text-center"> <!-- showcase is custom CSS -->
+        <!-- headerBG  = custom CSS BG color, p-2 = padding 2 -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 p-0 d-flex align-items-center">
+                    <!-- img-fluid = won't expand image larger than the container and will scale down if necessary -->
+                    <img class="img-fluid" src="{{url_for('static', filename='/img/research_battery.jpeg')}}" style="max-height:70%; max-width:70%" alt="Research Battery"> <!-- w-50 = 50% -->
+                </div>
+                <div class="col-sm-6 p-0 d-flex align-items-center">
+                    <div class="container">
+                        <h1 class="display-4">Biodegradable Polysaccharide-based Hydrogel in an Aluminum Battery</h1>
+                        <h2>Building a Site with Bootstrap Demo</h2>
+                    </div>
+                </div>
+                        
+            </div>  
+        </div>
+    </section>
+
+    <!-- Overview -->
+    <section class="overview text-dark p-2 text-left">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 p-3">
+                    <!-- pt - 3 = padding top -->
+                    <img class="img-fluid" src="{{url_for('static', filename='/img/lithium-ion_batteryfire.webp')}}" alt="Lithium-Ion Battery on Fire">
+                </div>
+                <div class="col-sm-8 p-3">
+                    <h1 class="ovPadLeft">Background</h1> <!-- ovPadLeft - custom padding -->
+                    <p class="lead overview-font ovPadLeft">
+                        Lithium-ion batteries are currently the de facto energy storage solution in numerous applications, 
+                        as they possess high energy density and storage capacity. However, their chemical composition poses 
+                        several physical limitations, as well as personal and environmental harm. Alternative solutions such 
+                        as aluminum-air batteries have the potential to address the concerns with lithium-ion batteries, but 
+                        come with their own limitations. For instance,  aluminum-air batteries have a corrosive anode, resulting 
+                        in irreversible byproducts that prevent further electrochemical reactions and preventing rechargeability. 
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-8 p-3">
+                    <h1 class="ovPadRight">Rationale</h1> <!-- ovPadLeft - custom padding -->
+                    <p class="lead overview-font ovPadRight">
+                        The potential of biodegradable/recyclable polysaccharides as electrolytes has not been explored. A successful battery design
+                        that implements this type of electrolyte could improve energy density, cost-efficiency, and safety. Fucoidan is a biodegradable 
+                        polysaccharide with high electrical conductivity and ionic properties. However, its viability in a battery electrolyte was yet to be explored. 
+                        The engineering goal of this research was to design, build, and test an aluminum battery containing a 
+                        Fucoidan hydrogel, and compare its performance with batteries containing conventional ionic electrolytes. 
+                    </p>
+                </div>
+                <div class="col-sm-4 p-3">
+                    <!-- pt - 3 = padding top -->
+                    <img class="img-fluid" src="{{url_for('static', filename='/img/recyclablebattery.jpeg')}}" alt="Recylable Battery">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 p-3">
+                    <!-- pt - 3 = padding top -->
+                    <img class="img-fluid" src="img/{{url_for('static', filename='/img/studentresearch.jpeg')}}" alt="Student Research">
+                </div>
+                <div class="col-sm-8 p-3">
+                    <h1 class="ovPadLeft">Research Practicum</h1> <!-- ovPadLeft - custom padding -->
+                    <p class="lead overview-font ovPadLeft">
+                        Research Practicum is a sophomore year course that marks the final chapter of required research at High Tech. For an entire semester, students 
+                        are given time to meet with faculty mentors, conduct their experiments, and statistically analyze their results. Students then write a conclusive 
+                        research paper, integrating their work from both freshman and sophomore years. Approximately 50% of the class then goes on to compete in various 
+                        research competitions (please see Competitions for further information). In addition to research and data analysis skills, students will develop 
+                        skills in communication, punctuality, time management, organization, decision making, resource allocation, ethical competition, and safety. 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (requires Bootstrap icons CSS)-->
+    <footer class="p-5 footer text-light text-center position-relative">
+        <div class="container">
+            <p class="lead">Copyright &copy; SE 2023 Bootstrap Demo</p>
+            <a href="#" class="position-absolute bottom-0 end-0 p-5">
+                <i class="bi bi-arrow-up-circle h2 icon-white"></i>
+            </a>
+        </div>
+
+    </footer>
+</body>
+</html>

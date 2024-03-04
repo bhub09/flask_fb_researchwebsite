@@ -1,0 +1,107 @@
+/* ----------------- Class -----------------*/
+.about {
+    width: 400px;
+    margin: auto;
+}
+
+.about-team {
+    color: rgb(0, 0, 0);
+}
+
+.authors {
+    background-color: #dbf8df;
+}
+
+.background{
+    background-color: #536878;
+}
+
+.footer {
+    background-color: rgb(189, 189, 189); /* footer background */
+}
+
+.icon-white {
+    color: #FFFFFF;
+}
+
+.nb-background-color {
+    background-color: #000000; /* navbar background color */
+}
+
+.nbMenuItem {
+    font-size: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.nbMenuItem p {
+    color: #89f898
+}
+
+.overview {
+    background-color: #dbf8df;
+}
+
+.ovPadLeft{
+    padding-left: 20px;
+}
+
+.ovPadRight{
+    padding-right: 20px;
+}
+
+.procedure {
+    background-color: #dbf8df; 
+    padding: 1px;
+}
+
+.howTo {
+    font-size: 20px;
+}
+
+.showcase {
+    background-color: #679376;
+}
+/* ----------------- ID -----------------*/
+
+/* ----------------- Chart.js CSS ----------------- */
+.chart-container{
+    background-color: #dbe3e7 !important;
+    width: 100%;
+}
+
+#chart-wrapper{
+    margin: auto; 
+    padding: 10px;
+    height: 40vh;
+    min-height: 350px;
+    width:  80vw;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* -----------------Underline Animation CSS -----------------*/
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    /*color: #0087ca;*/
+  }
+  
+.hover-underline-animation:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #eae6e6;
+    /*transform-origin: bottom right;*/
+    transition: transform 0.35s ease-out;
+}
+  
+.hover-underline-animation:hover:after {
+    transform: scaleX(1);
+    /*transform-origin: bottom left;*/
+}
